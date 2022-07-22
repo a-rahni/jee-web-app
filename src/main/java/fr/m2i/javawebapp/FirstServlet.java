@@ -29,8 +29,12 @@ public class FirstServlet extends HttpServlet {
         //this.getServletContext().getRequestDispatcher("/firstPage.html").forward(request, response);
         //response.sendRedirect("SecondServlet"); // redirection
         
-        // avec page JSP
-        this.getServletContext().getRequestDispatcher("/firstJSP.jsp").forward(request, response);
+        // avec page JSP  exo2
+        //this.getServletContext().getRequestDispatcher("/firstJSP.jsp").forward(request, response);
+        
+        // avec page JSP  exo3  transmettre parametres
+       // exp: /FirstServlet?name=xavier
+        this.getServletContext().getRequestDispatcher("/firstJSPexo3.jsp").forward(request, response);
     }
 
     /**
