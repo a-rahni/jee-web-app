@@ -27,7 +27,10 @@ public class FirstServlet extends HttpServlet {
             throws ServletException, IOException {
         //super.doGet(request, response); error 405
         //this.getServletContext().getRequestDispatcher("/firstPage.html").forward(request, response);
-        response.sendRedirect("SecondServlet"); // redirection
+        //response.sendRedirect("SecondServlet"); // redirection
+        
+        // avec page JSP
+        this.getServletContext().getRequestDispatcher("/firstJSP.jsp").forward(request, response);
     }
 
     /**

@@ -28,8 +28,11 @@ public class SecondServlet extends HttpServlet {
             throws ServletException, IOException {
         //super.doGet(request, response);
         //this.getServletContext().getRequestDispatcher("/secondPage.html").forward(request, response);
-        response.sendRedirect("/index.html");
+        //response.sendRedirect("/index.html");
         //response.sendRedirect("/java-web-app/");
+        
+        //JSP
+        this.getServletContext().getRequestDispatcher("/secondJSP.jsp").forward(request, response);
         
     }
 
