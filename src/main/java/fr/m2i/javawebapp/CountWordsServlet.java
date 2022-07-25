@@ -2,17 +2,13 @@
 package fr.m2i.javawebapp;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.StringTokenizer;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author rahni
- */
-public class FirstServlet extends HttpServlet {
+public class CountWordsServlet extends HttpServlet {
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -25,16 +21,14 @@ public class FirstServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //super.doGet(request, response); error 405
-        //this.getServletContext().getRequestDispatcher("/firstPage.html").forward(request, response);
-        //response.sendRedirect("SecondServlet"); // redirection
         
-        // avec page JSP  exo2
-        this.getServletContext().getRequestDispatcher("/firstJSP.jsp").forward(request, response);
+        String sentence = request.getParameter("sentence");
+
+        if (sentence != null) {
+            request.setAttribute("number", new StringTokenizer(sentence).countTokens());
+        }
         
-        // avec page JSP  exo3  transmettre parametres du GET à la page jsp
-       // exp: /FirstServlet?name=xavier
-       // this.getServletContext().getRequestDispatcher("/firstJSPexo3.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/countWords.jsp").forward(request, response);
     }
 
     /**
@@ -59,6 +53,6 @@ public class FirstServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
 
 }

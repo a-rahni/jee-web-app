@@ -12,8 +12,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author rahni
  */
-public class FirstServlet extends HttpServlet {
+public class EvenNumbers extends HttpServlet {
 
+    
+
+   
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -25,16 +28,8 @@ public class FirstServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //super.doGet(request, response); error 405
-        //this.getServletContext().getRequestDispatcher("/firstPage.html").forward(request, response);
-        //response.sendRedirect("SecondServlet"); // redirection
-        
-        // avec page JSP  exo2
-        this.getServletContext().getRequestDispatcher("/firstJSP.jsp").forward(request, response);
-        
-        // avec page JSP  exo3  transmettre parametres du GET à la page jsp
-       // exp: /FirstServlet?name=xavier
-       // this.getServletContext().getRequestDispatcher("/firstJSPexo3.jsp").forward(request, response);
+        //this.doGet(request, response);
+        this.getServletContext().getRequestDispatcher("/displayEvenNumber.jsp").forward(request, response);
     }
 
     /**
@@ -48,6 +43,7 @@ public class FirstServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //processRequest(request, response);
         super.doPost(request, response);
     }
 
@@ -59,6 +55,6 @@ public class FirstServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
 
 }
