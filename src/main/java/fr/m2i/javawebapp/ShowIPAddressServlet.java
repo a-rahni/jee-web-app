@@ -20,6 +20,7 @@ public class ShowIPAddressServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        // transmettre des attributs à la page JSP
         request.setAttribute("clientName", request.getParameter("name"));
         request.setAttribute("clientIP", request.getRemoteAddr());
 

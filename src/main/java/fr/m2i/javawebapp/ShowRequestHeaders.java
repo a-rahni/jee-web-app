@@ -2,17 +2,15 @@
 package fr.m2i.javawebapp;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author rahni
- */
-public class FirstServlet extends HttpServlet {
+public class ShowRequestHeaders extends HttpServlet {
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -25,16 +23,30 @@ public class FirstServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //super.doGet(request, response); error 405
-        //this.getServletContext().getRequestDispatcher("/firstPage.html").forward(request, response);
-        //response.sendRedirect("SecondServlet"); // redirection
-        
-        // avec page JSP  exo2
-        //this.getServletContext().getRequestDispatcher("/firstJSP.jsp").forward(request, response);
-        
-        // avec page JSP  exo3  transmettre parametres du GET à la page jsp
-       // exp: /FirstServlet?name=xavier
-        this.getServletContext().getRequestDispatcher("/firstJSPexo3.jsp").forward(request, response);
+
+        // On récupère la collection des noms des headers contenues dans la requête
+        Enumeration<String> headersName = request.getHeaderNames();
+
+        // On créer deux liste que l'on va pouvoir manipuler dans le jsp de façon simple
+        List<String> headerNameList = new ArrayList();
+        List<String> headerValueList = new ArrayList();
+
+        // On parcours la collection -> tant qu'il y a des éléments dans la collection
+        while (headersName.hasMoreElements()) {
+            // On stock l'élément courant (le nom du header) et on décale le curseur de 1
+            String name = headersName.nextElement();
+
+            // On ajoute le nom du header
+            headerNameList.add(name);
+            // On ajoute la valeur du header
+            headerValueList.add(request.getHeader(name));
+        }
+
+        // On passe par des attributs pour les utiliser côté JSP
+        request.setAttribute("headersName", headerNameList);
+        request.setAttribute("headersValue", headerValueList);
+
+        this.getServletContext().getRequestDispatcher("/showRequestHeaders.jsp").forward(request, response);
     }
 
     /**
@@ -60,5 +72,4 @@ public class FirstServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }
-
 }
