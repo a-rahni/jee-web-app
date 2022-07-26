@@ -44,6 +44,14 @@
         <servlet-name>DistributeurServlet</servlet-name>
         <servlet-class>fr.m2i.javawebapp.DistributeurServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DistributorServletS</servlet-name>
+        <servlet-class>fr.m2i.javawebapp.DistributorServletS</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DistributorServletErr</servlet-name>
+        <servlet-class>fr.m2i.javawebapp.DistributorServletErr</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FirstServlet</servlet-name>
         <url-pattern>/FirstServlet</url-pattern>
@@ -87,6 +95,14 @@
     <servlet-mapping>
         <servlet-name>DistributeurServlet</servlet-name>
         <url-pattern>/DistributeurServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DistributorServletS</servlet-name>
+        <url-pattern>/DistributorServletS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DistributorServletErr</servlet-name>
+        <url-pattern>/DistributorServletErr</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
