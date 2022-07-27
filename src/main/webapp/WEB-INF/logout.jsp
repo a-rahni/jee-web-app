@@ -19,8 +19,8 @@
          }, 5000);
         </script>
         
-        <h1> votre role: <c:out value="${user.getRole()}" /></h1>
-        <h1> vous etes deconnecté, vous allez etre redirigé vers la page login dans 5s   </h1>
+<!--        <h2> votre role: <c:out value="${user.getRole()}" /></h2>-->
+        <h2> vous etes deconnecté, vous allez etre redirigé vers la page login dans 5s   </h>
        </br>
        
        
