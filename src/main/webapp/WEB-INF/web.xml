@@ -60,6 +60,14 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>fr.m2i.javawebapp.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServletS</servlet-name>
+        <servlet-class>fr.m2i.javawebapp.LoginServletS</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServletS</servlet-name>
+        <servlet-class>fr.m2i.javawebapp.LogoutServletS</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FirstServlet</servlet-name>
         <url-pattern>/FirstServlet</url-pattern>
@@ -119,6 +127,14 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServletS</servlet-name>
+        <url-pattern>/LoginServletS</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServletS</servlet-name>
+        <url-pattern>/LogoutServletS</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
